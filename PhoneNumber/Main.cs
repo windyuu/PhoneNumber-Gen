@@ -1,37 +1,33 @@
-using static System.Console;
 using System;
 
 namespace PhoneNumber
 {
-	/// <summary>
-	/// 電話番号生成アプリ 
-	/// </summary>
-	/// <param name="args"></param>
+    public class Program
+    {
+        public static void Main()
+        {
+            string Number = "080";
+            Random random = new Random();
 
-	public class Program
-	{
-	    public void Method()
-	    {
-            	while (true)
+            for (int phone = 0; phone < 8; phone++)
             {
-		    if (ReadLine() != ".")
-			Main(); break;
+                Number += random.Next(1, 9);
+            }
+
+            Console.WriteLine(Number);
+            Console.WriteLine("続行するにはEnterキーを押してください。\n\n処理を終了するには文字を入力してからキーを押してください。");
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(input))
+                {
+                    break;
+                }
+
+                Console.WriteLine(Number);
+                Console.WriteLine("続行するにはEnterキーを押してください。\n\n処理を終了するには文字を入力してからキーを押してください。");
             }
         }
-		
-	public static void Main()
-        {
-		string Number = "080";
-		
-		Random random = new Random(); // 000.000.000.00
-		
-		for (int phone = 0; phone < 8; phone++)
-		{
-		    Number += random.Next(1, 9);
-		}
-		WriteLine(Number); WriteLine("続行するにはキーを押してください...");
-		Program program = new Program();
-		program.Method();
-	}
     }
 }
